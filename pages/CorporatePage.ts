@@ -15,12 +15,15 @@ export class CorporatePage {
     await this.page.locator(CorporatePageLocators.organizationSizeSelect).selectOption('1001-5000');
     await this.page.locator(CorporatePageLocators.interestedInSelect).selectOption('Taking a demo');
     await takeActionScreenshot(this.page, 'form-filled');
+    await this.page.waitForTimeout(3000);
+
     
   }
 
   async submit() {
     await this.submitControl().click();
     await takeActionScreenshot(this.page, 'form-submitted');  
+    await this.page.waitForTimeout(3000);
   }
 
   // Targets the interactive submit control (button/input/anchor) — not the H2 title.

@@ -4,4 +4,5 @@ export const HomeLocators = {
   searchService: 'input[placeholder="Search doctors, clinics, hospitals, etc."]',
   suggestionMain: "//div[@data-qa-id='omni-suggestion-main']",
   hospitalText: 'text=Hospital',
+  corporateSelector: "role=link[name='Health & Wellness Plans']"
 };

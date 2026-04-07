@@ -11,3 +11,4 @@ export const CorporatePageLocators = {
 	submitInput: "#header input[type=\"submit\"]",
 	submitAnchor: "#header a:has-text(\"Schedule a Demo\")",
 };
+

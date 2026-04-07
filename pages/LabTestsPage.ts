@@ -32,7 +32,7 @@ export class LabTestsPage{
   async selectCity(city: string) {
     const input = this.page.locator(LabTestLocator.cityInput).or(this.page.locator(LabTestLocator.cityInputAlt));
     await input.click();
-    await input.fill(''); // clear
+    await input.clear();
     await input.pressSequentially(city, { delay: 50 }); 
     await takeActionScreenshot(this.page, `select-city-${city}`);
 
@@ -46,7 +46,7 @@ export class LabTestsPage{
    
    async getCityList() {
     try {
-      //await this.page.getByRole('textbox', { name: LabTestLocator.globalSearchInput }).click();
+  
       const cities = await this.page.locator('.city-selector__city').all();
      
       const cityNames = await Promise.all(cities.map(city => city.innerText()));
@@ -61,7 +61,7 @@ export class LabTestsPage{
    
 
    async searchAndSelectTest(testName: string) {
-    //await this.page.getByRole('textbox', { name: LabTestLocator.globalSearchInput }).click();
+
     await this.page.getByRole('textbox', { name: LabTestLocator.globalSearchInput }).pressSequentially(testName, { delay: 200 });
     const row = this.page.locator('.c-suggestion').filter({
       has: this.page.getByText('Complete Blood Count', { exact: true }),
